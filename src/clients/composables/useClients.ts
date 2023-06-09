@@ -9,7 +9,7 @@ import type { Client } from "@/clients/interfaces/client";
 const getClients = async( page:number ):Promise<Client[]> => {
 
     // await new Promise( resolve => {
-    //     setTimeout( () => resolve(true), 1500);
+    //     setTimeout( () => resolve(true), 2500);
     // });
 
     const { data } = await clientsApi.get<Client[]>(`/clients?_page=${ page }`);
@@ -31,7 +31,7 @@ const useClients = () => {
 
         if( clients )
         store.setClients( clients )
-    } );
+    }, { immediate: true });
 
     return {
         // State
